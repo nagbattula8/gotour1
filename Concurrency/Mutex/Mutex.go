@@ -18,7 +18,7 @@ type SafeCounter struct {
 
 var c SafeCounter = SafeCounter{v: make(map[string]bool)}
 
-func (s SafeCounter) checkvisited(url string) bool {
+func (s *SafeCounter) checkvisited(url string) bool {
 	s.mux.Lock()
 	defer s.mux.Unlock()
 	_, ok := s.v[url]
